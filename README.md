@@ -1,10 +1,10 @@
-**Project Proposal: Credit Risk Assessment Using Ensemble Learning**
+# **Project Proposal: Credit Risk Assessment Using Ensemble Learning**
 
-**Problem Statement:**
+### **Problem Statement:**
 
 Financial institutions face significant challenges in accurately assessing the credit risk of potential borrowers. Traditional credit scoring models may not fully capture the complexities of borrower behavior, leading to suboptimal lending decisions. This project aims to develop a machine learning application that utilizes ensemble learning techniques to enhance the prediction accuracy of credit risk, thereby aiding financial institutions in making informed lending decisions.
 
-**Deliverables:**
+### **Deliverables:**
 
 1. **Data Collection and Preprocessing:**
    - Gather historical loan application data, including borrower demographics, financial information, and loan performance outcomes.
@@ -23,14 +23,14 @@ Financial institutions face significant challenges in accurately assessing the c
 5. **Deployment:**
    - Deploy the application on AWS using services such as Elastic Beanstalk or App Runner to ensure scalability and reliability.
 
-**Tech Stack:**
+### **Tech Stack:**
 
 - **Backend Framework:** Python with Django
 - **Machine Learning Libraries:** Scikit-learn, XGBoost
 - **Database:** SQLite3, PostgreSQL
 - **Deployment:** AWS Elastic Beanstalk or AWS App Runner
 
-**Implementation Steps:**
+### **Implementation Steps:**
 
 1. **Step 1: Data Preparation**
    - Collect and preprocess the dataset, ensuring it is suitable for modeling.
@@ -48,6 +48,6 @@ Financial institutions face significant challenges in accurately assessing the c
    - Develop the Django-based API to serve the model predictions.
    - Deploy the application on AWS, ensuring it meets performance and security standards.
 
-**Uniqueness and Impact:**
+### **Uniqueness and Impact:**
 
 By focusing on ensemble learning techniques, this project aims to improve the accuracy and reliability of credit risk assessments. Accurate credit risk prediction is crucial for financial institutions to minimize defaults and maintain profitability. Deploying the application on AWS ensures that it can handle real-time assessments and scale with demand, making it a valuable tool for lenders.
