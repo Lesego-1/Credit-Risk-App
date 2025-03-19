@@ -4,6 +4,23 @@
 
 Financial institutions face significant challenges in accurately assessing the credit risk of potential borrowers. Traditional credit scoring models may not fully capture the complexities of borrower behavior, leading to suboptimal lending decisions. This project aims to develop a machine learning application that utilizes ensemble learning techniques to enhance the prediction accuracy of credit risk, thereby aiding financial institutions in making informed lending decisions.
 
+### **Dataset:**
+
+Detailed data description of Credit Risk dataset:
+
+- **person_age:** Age
+- **person_income:** Annual Income
+- **person_home_ownership:** Home ownership
+- **person_emp_length:** Employemnt length (in years)
+- **loan_intent:** Loan Intent
+- **loan_grade:** Loan grade
+- **loan_amnt:** Loan amount
+- **loan_int_rate:** Interest rate
+- **loan_status:** Loan status (0 is non default, 1 is default)
+- **loan_percent_income:** Percent income
+- **cb_person_on_file:** Historical default
+- **cb_preson_cred_hist_length:** Credit history length
+
 ### **Deliverables:**
 
 1. **Data Collection and Preprocessing:**
