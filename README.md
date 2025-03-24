@@ -19,7 +19,7 @@ Detailed data description of Credit Risk dataset:
 - **loan_status:** Loan status (0 is non default, 1 is default)
 - **loan_percent_income:** Percent income
 - **cb_person_on_file:** Historical default
-- **cb_preson_cred_hist_length:** Credit history length
+- **cb_person_cred_hist_length:** Credit history length
 
 ### **Deliverables:**
 
