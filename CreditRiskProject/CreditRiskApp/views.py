@@ -49,10 +49,11 @@ def predict(df:pd.DataFrame):
     
     y_pred = model.predict(df)  # Predict Credit Risk
     
-    return y_pred
+    return "Yes" if y_pred == 1 else "No"
 
 def form(request):
-    if request == "POST":
+    form = CreditRiskForm()  # Initialize Credit Risk Form
+    if request.method == "POST":
         form = CreditRiskForm(request.POST)  # Define the form
         if form.is_valid():
             # Initialize form fields
@@ -91,8 +92,8 @@ def form(request):
                 will_default = result
             )
             
-            render(request, "result.html", {"result":result})  # Redirect to the result page
+            return render(request, "result.html", {"result":result})  # Redirect to the result page
             
-        form = CreditRiskForm()
+        # form = CreditRiskForm()
         
-    render(request, "index.html", {"form":form})
+    return render(request, "index.html", {"form":form})
