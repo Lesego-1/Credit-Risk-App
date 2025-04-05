@@ -18,7 +18,7 @@ class CreditRiskListCreate(generics.ListCreateAPIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
     
 class CreditRiskRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
-    model = CreditRisk
+    queryset = CreditRisk.objects.all()
     serializer_class = CreditRiskSerializer
     lookup_field = "pk"
 
@@ -49,7 +49,7 @@ def predict(df:pd.DataFrame):
     
     y_pred = model.predict(df)  # Predict Credit Risk
     
-    return "Yes" if y_pred == 1 else "No"
+    return "Default" if y_pred == 1 else "No Default"
 
 def form(request):
     form = CreditRiskForm()  # Initialize Credit Risk Form
@@ -58,17 +58,17 @@ def form(request):
         if form.is_valid():
             # Initialize form fields
             account_number = form.cleaned_data["account_number"]
-            credit_history_length = form.cleaned_data["credit_history_length"]
-            historical_defaults = form.cleaned_data["historical_defaults"]
-            loan_amount = form.cleaned_data["loan_amount"]
-            loan_grade = form.cleaned_data["loan_grade"]
-            loan_interest_rate = form.cleaned_data["loan_interest_rate"]
-            loan_intent = form.cleaned_data["loan_intent"]
-            loan_percent_income = form.cleaned_data["loan_percent_income"]
             person_age = form.cleaned_data["person_age"]
-            person_employment_length = form.cleaned_data["person_employment_length"]
-            person_home_ownership = form.cleaned_data["person_home_ownership"]
             person_income = form.cleaned_data["person_income"]
+            person_employment_length = form.cleaned_data["person_employment_length"]
+            loan_amount = form.cleaned_data["loan_amount"]
+            loan_interest_rate = form.cleaned_data["loan_interest_rate"]
+            loan_percent_income = form.cleaned_data["loan_percent_income"]
+            credit_history_length = form.cleaned_data["credit_history_length"]
+            person_home_ownership = form.cleaned_data["person_home_ownership"]
+            loan_intent = form.cleaned_data["loan_intent"]
+            loan_grade = form.cleaned_data["loan_grade"]
+            cb_person_default_on_file = form.cleaned_data["cb_person_default_on_file"]  # Historical Defaults
             
             new_dict = (request.POST).dict()  # Create new dictionary
             new_df = pd.DataFrame(new_dict, index=[0])  # Create new DataFrame
@@ -78,22 +78,20 @@ def form(request):
             
             CreditRisk.objects.create(
                 account_number = account_number,
-                credit_history_length = credit_history_length,
-                historical_defaults = historical_defaults,
-                loan_amount = loan_amount,
-                loan_grade = loan_grade,
-                loan_interest_rate = loan_interest_rate,
-                loan_intent = loan_intent,
-                loan_percent_income = loan_percent_income,
                 person_age = person_age,
-                person_employment_length = person_employment_length,
-                person_home_ownership = person_home_ownership,
                 person_income = person_income,
+                person_employment_length = person_employment_length,
+                loan_amount = loan_amount,
+                loan_interest_rate = loan_interest_rate,
+                loan_percent_income = loan_percent_income,
+                credit_history_length = credit_history_length,
+                person_home_ownership = person_home_ownership,
+                loan_intent = loan_intent,
+                loan_grade = loan_grade,
+                historical_defaults = cb_person_default_on_file,
                 will_default = result
             )
             
             return render(request, "result.html", {"result":result})  # Redirect to the result page
-            
-        # form = CreditRiskForm()
         
     return render(request, "index.html", {"form":form})

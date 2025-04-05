@@ -1,18 +1,57 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'index_styles.css' %}">
     <title>Credit Risk Form</title>
 </head>
+<style>
+    body {
+        background: linear-gradient(90deg, rgb(248, 250, 252), rgb(30, 58, 138));
+        height: 100vh;
+    }
+    #submit {
+        font-size: 20px;
+        margin: 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 8px;
+        background-color: rgb(30, 58, 138);
+        color: white;
+    }
+    #submit:hover {
+        background-color: white;
+        color: rgb(30, 58, 138);
+    }
+    .form {
+        display: flex; /* Enables Flexbox */
+        justify-content: center; /* Aligns items horizontally */
+        align-items: center; /* Aligns items vertically */
+        width: 100%; /* Full width */
+    }
+    form {
+        background-color: rgba(51, 65, 85, 0.4); /* Optional: Add a background color */
+        padding: 20px; /* Optional: Add some padding */
+        {% comment %} border: 1px solid #ccc; /* Optional: Add a border */ {% endcomment %}
+        border-radius: 5px; /* Optional: Add rounded corners */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow */
+        padding: 20px;
+    }
+    .button {
+        display: flex;
+        justify-content: center;
+
+    }
+</style>
 <body>
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" name="name">
-    </form>
+    <div class="form">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="button">
+                <input type="submit" name="name" id="submit">
+            </div>
+        </form>
+    </div>
 </body>
 </html>
