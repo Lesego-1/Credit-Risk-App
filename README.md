@@ -1,4 +1,4 @@
-# **Project Proposal: Credit Risk Assessment Using Ensemble Learning**
+# **Credit Risk Assessment**
 
 ### **Problem Statement:**
 
@@ -23,9 +23,8 @@ Detailed data description of Credit Risk dataset:
 
 ### **Tech Stack:**
 
-- **Backend Framework:** Python with Django
+- **Backend Framework:** Python
 - **Machine Learning Libraries:** Pandas, Scikit-learn, XGBoost
-- **Database:** SQLite3
 
 ### **Implementation Steps:**
 
@@ -36,9 +35,6 @@ Detailed data description of Credit Risk dataset:
 2. **Step 2: Model Training and Evaluation**
    - Train multiple ensemble models and evaluate their performance using cross-validation.
    - Tune hyperparameters to optimize model accuracy and robustness.
-
-3. **Step 4: API Development**
-   - Develop the Django-based API to serve the model predictions.
 
 ### **Uniqueness and Impact:**
 
